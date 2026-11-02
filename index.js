@@ -49,3 +49,13 @@ app.delete('/komik/:id', async (req, res) => {
   }
 });
 
+if (require.main === module) {
+  db.sequelize.sync()
+    .then(() => app.listen(PORT, () => console.log(`Server started on port ${PORT}`)))
+    .catch((error) => {
+      console.error(error.message);
+      process.exitCode = 1;
+    });
+}
+
+module.exports = { app, db };
