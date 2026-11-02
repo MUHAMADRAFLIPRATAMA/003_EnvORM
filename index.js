@@ -11,3 +11,7 @@ app.get('/', (req, res) => {
   res.json({ message: 'CRUD Komik API aktif' });
 });
 
+app.get('/komik', async (req, res) => {
+  try {
+    res.json(await db.Komik.findAll());
+ 
