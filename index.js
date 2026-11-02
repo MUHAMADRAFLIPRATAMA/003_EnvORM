@@ -14,4 +14,5 @@ app.get('/', (req, res) => {
 app.get('/komik', async (req, res) => {
   try {
     res.json(await db.Komik.findAll());
- 
+  } catch (error) {
+    
