@@ -43,4 +43,6 @@ app.delete('/komik/:id', async (req, res) => {
     const komik = await db.Komik.findByPk(req.params.id);
     if (!komik) return res.status(404).json({ message: 'Komik tidak ditemukan' });
     await komik.destroy();
+    res.json({ message: 'Komik berhasil dihapus' });
+  } catch (error) {
     
