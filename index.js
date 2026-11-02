@@ -45,4 +45,7 @@ app.delete('/komik/:id', async (req, res) => {
     await komik.destroy();
     res.json({ message: 'Komik berhasil dihapus' });
   } catch (error) {
-    
+    res.status(500).json({ message: error.message });
+  }
+});
+
