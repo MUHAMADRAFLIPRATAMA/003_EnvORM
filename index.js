@@ -22,4 +22,8 @@ app.get('/komik', async (req, res) => {
 app.post('/komik', async (req, res) => {
   try {
     res.status(201).json(await db.Komik.create(req.body));
-  } 
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
